@@ -1,0 +1,76 @@
+<ion-view title="ArticlePage" hide-nav-bar="true" id="page2" class=" ">
+  <ion-content padding="true" class="" style="background-color: white">
+    <div class="articleHeader">
+      <div class="search">
+        <ion-item ui-sref="tabsController.searchPage" id="articlePage-button10" class="item"
+                  style="opacity:0.7;background-color: #374953;border-radius: 40px;height: 32px;width: 70%;margin-left:15%">
+          <i class="ion-search" style="padding-left: 5px"></i>
+          <i style="padding-left: 15px">请输入关键字进行查询</i>
+        </ion-item>
+      </div>
+      <div class="coverFlow" style="background-color: #0a9dc7">
+        <ion-slide-box on-slide-changed="slideHasChanged($index)" auto-play="true" does-continue="true"
+                       slide-interval=2000 show-pager="true" pager-click="pageClick(index)"
+                       active-slide="model.activeIndex" delegate-handle="delegateHandler" ng-click="coverFlowClick()">
+          <ion-slide>
+            <div class="box">
+              <img src="http://img9.tu11.com:8080/picture/121022/pic5/14.jpg">
+            </div>
+          </ion-slide>
+          <ion-slide>
+            <div class="box">
+              <img src="http://down77.yousiji.com/uploads1/allimg/c101123/12Z4Qc10S10-193502.jpg">
+            </div>
+          </ion-slide>
+          <ion-slide>
+            <div class="box">
+              <img src="http://img.mm522.net/flashAll/20120206/13285185634aUfhU.jpg">
+            </div>
+          </ion-slide>
+        </ion-slide-box>
+      </div>
+    </div>
+    <div class="articleButtonBar">
+      <i class="button button-clear"
+         style="background-image: url('img/btn1.png');" ng-click="articleBtnClick(0)"></i>
+      <i class="button button-clear"
+         style="background-image: url('img/btn2.png');" ng-click="articleBtnClick(1)"></i>
+      <i class="button button-clear"
+         style="background-image: url('img/btn3.png');" ng-click="articleBtnClick(2)"></i>
+      <i class="button button-clear"
+         style="background-image: url('img/btn4.png');" ng-click="articleBtnClick(3)"></i>
+    </div>
+    <div class="list card " id="articlePage-card">
+      <ion-item class="item-icon-left  " id="testPage-list-item11">
+        <i class="icon ion-ios-heart-outline"></i>编辑强力推荐
+      </ion-item>
+      <ion-item ng-click="articleListClick(article.id)" ng-repeat="article in articles">
+        <ion-item class="item-avatar" id="articlePage-list-item">
+          <img src="img/title_img.jpg">
+          <h2>张老师{{article.title}}</h2>
+          <p>2016-08-05</p>
+        </ion-item>
+        <div class="articleImg">
+          <img src="img/item-img.jpg">
+        </div>
+        <ion-item id="articlePage-list-item10">
+          <p class="topTitle">一个菠萝教会孩子做人</p>
+          <p>用一个菠萝，教会孩子谦让的美德。</p>
+          <span class="item-note" style="float: left;padding-right: 10px">10900</span>
+          <i class="icon ion-ios-eye-outline"></i>
+          <!--<div class="icon ion-ios-eye-outline">-->
+            <!--<span class="item-note">10900</span>-->
+            <!--<i class="icon ion-eye"></i>-->
+          <!--</div>-->
+        </ion-item>
+      </ion-item>
+    </div>
+    <!--上拉更多 ng-if="moreDataCanBeLoaded()"-->
+    <ion-infinite-scroll
+      icon="ion-loading-c"
+      ng-if="moreDataCanBeLoaded()"
+      on-infinite="loadMore()"
+      distance="10%">
+    </ion-infinite-scroll>
+  </ion-content>
+</ion-view>

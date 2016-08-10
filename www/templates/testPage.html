@@ -1,0 +1,32 @@
+<ion-view title="TestPage" hide-nav-bar="true" id="page3" class=" ">
+  <ion-content padding="true" class="manual-ios-statusbar-padding has-header">
+    <ion-list id="testPage-list1" class="">
+      <ion-item class="item-icon-left  " id="testPage-list-item11">
+        <i class="icon ion-ios-heart-outline"></i>编辑强力推荐
+      </ion-item>
+      <!--ui-sref="tabsController.testDetailPage"-->
+      <ion-item class="item-thumbnail-left" id="testPage-list-item12"
+                ng-repeat="item in tests"
+                ng-click="testListClick($index)">
+        <img src="img/item-img.jpg">
+        <h2>你是哪种神经病--{{item.title}}</h2>
+        <div style="float: right;height: 16px;padding-top: 40px;">
+          <i class="icon ion-chatbubble-working"> 49</i>
+          <i class="icon ion-person"> 88</i>
+        </div>
+      </ion-item>
+    </ion-list>
+    <!--上拉更多 ng-if="moreDataCanBeLoaded()"-->
+    <ion-infinite-scroll
+      icon="ion-loading-c"
+      ng-if="moreDataCanBeLoaded()"
+      on-infinite="loadMore()"
+      distance="10%">
+    </ion-infinite-scroll>
+  </ion-content>
+  <div class="myTopTabs">
+    <ion-tabs delegate-handle="testTabsHandle" class="tabs-striped tabs-top">
+      <ion-tab ng-repeat="item in tabs" on-select="selectedTab($index)" title="{{item.title}}"></ion-tab>
+    </ion-tabs>
+  </div>
+</ion-view>

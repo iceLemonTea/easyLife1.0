@@ -1,0 +1,33 @@
+<ion-view title="SearchPage" hide-nav-bar="true" id="page5" class=" ">
+  <div class="searchPage row">
+    <ion-item id="searchPage-Search" class="item item-icon-left col-75"
+              style="opacity:0.7;border-radius: 40px;height: 32px;width: 75%;margin-left:5px">
+      <i class="icon ion-search placeholder-icon" style="font-size: 20px"></i>
+      <input style="padding-left: 15px;border: none" placeholder="请输入关键字进行查询"/>
+    </ion-item>
+    <a ui-sref="tabsController.articlePage" id="searchPage-buttonCancle"
+       class=" button button-clear button-small col-20" style="margin-left: 5px;color: #0c60ee;font-size: 20px">取消</a>
+  </div>
+  <ion-header class="bar bar-subheader">相关文章（3）</ion-header>
+  <ion-content padding="true" class="manual-ios-statusbar-padding has-header has-subheader">
+    <ion-list id="searchPage-list4" class=" ">
+      <ion-item class="item-thumbnail-left" id="testPage-list-item12"
+                ng-repeat="item in searchArticles"
+                ng-click="testListClick($index)">
+        <img src="img/item-img.jpg">
+        <h2>梦，打开你潜意识的大门--{{item.title}}</h2>
+        <div style="float: right;height: 16px;padding-top: 40px;">
+          <i class="icon ion-chatbubble-working">   49</i>
+          <i class="icon ion-person">   88</i>
+        </div>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+  <!--上拉更多 ng-if="moreDataCanBeLoaded()"-->
+  <ion-infinite-scroll
+    icon="ion-loading-c"
+    ng-if="moreDataCanBeLoaded()"
+    on-infinite="loadMore()"
+    distance="10%">
+  </ion-infinite-scroll>
+</ion-view>

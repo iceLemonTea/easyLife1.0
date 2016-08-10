@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+  <title></title>
+
+
+  <script src="lib/ionic/js/ionic.bundle.js"></script>
+
+  <!-- cordova script (this will be a 404 during development) -->
+  <script src="cordova.js"></script>
+
+  <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+  <link href="css/ionic.app.css" rel="stylesheet">
+  -->
+
+
+  <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+  <!--app's css-->
+  <link href="css/style.css" rel="stylesheet">
+
+
+  <style type="text/css">
+    .platform-ios .manual-ios-statusbar-padding {
+      padding-top: 20px;
+    }
+
+    .manual-remove-top-padding {
+      padding-top: 0px;
+    }
+
+    .manual-remove-top-padding .scroll {
+      padding-top: 0px !important;
+    }
+
+    ion-list.manual-list-fullwidth div.list, .list.card.manual-card-fullwidth {
+      margin-left: -10px;
+      margin-right: -10px;
+    }
+
+    ion-list.manual-list-fullwidth div.list > .item, .list.card.manual-card-fullwidth > .item {
+      border-radius: 0px;
+      border-left: 0px;
+      border-right: 0px;
+    }
+  </style>
+
+  <script src="js/app.js"></script>
+  <script src="js/controllers.js"></script>
+  <script src="js/routes.js"></script>
+
+
+  <script src="js/directives.js"></script>
+
+  <script src="js/services.js"></script>
+
+
+  <!-- Only required for Tab projects w/ pages in multiple tabs
+  <script src="lib/ionicuirouter/ionicUIRouter.js"></script>
+  -->
+
+</head>
+<body ng-app="app" animation="slide-left-right-ios7">
+<div ng-controller="accountCtrl">
+  <ion-side-menus enable-menu-with-back-views="false" data-componentid="side-menu21">
+    <ion-side-menu-content>
+      <ion-nav-bar class="bar-stable">
+        <ion-nav-back-button></ion-nav-back-button>
+        <ion-nav-buttons side="left">
+          <button class="button button-icon button-clear ion-navicon" menu-toggle="left"></button>
+        </ion-nav-buttons>
+      </ion-nav-bar>
+      <ion-nav-view></ion-nav-view>
+    </ion-side-menu-content>
+    <ion-side-menu side="left" id="side-menu21" style="background-color: white">
+      <ion-header-bar class="bar-stable" style="background-color: bisque">
+        <div class="title" style="font-weight: bolder">个人资料</div>
+      </ion-header-bar>
+      <ion-content padding="false" class="side-menu-left has-header">
+        <div class="list card " id="side-menu21-card21" data-componentid="card21">
+          <ion-item class="item-avatar item-icon-right  " id="side-menu21-list-item1" data-componentid="list-item1" >
+            <img src="img/title_img.jpg">
+            <div>
+              <input value={{accountName}} style="border: none;font-size: 16px;font-weight: 800;background-color: transparent"
+                     id="accountName"/>
+            </div>
+            <div>
+              <input value={{accountSign}}
+                     style="border: none;font-size: 8px;font-weight: 400;background-color: transparent;min-width:100px;width:auto"
+                     id="accountSignature"/>
+            </div>
+            <!--<i class="icon ion-edit" style="font-size: 15px" ng-click="accountEditClick()"></i>-->
+          </ion-item>
+          <div class="item item-body " id="side-menu21-list-item-container1" data-componentid="list-item-container1">
+            <div class="accountButtonBar">
+              <i class="icon ion-ios-chatbubble-outline" style="font-size: 48px"
+                 ng-click="accountBtnClick(0)"></i>
+              <i class="icon ion-ios-heart-outline" style="font-size: 48px"
+                 ng-click="accountBtnClick(1)"></i>
+              <i class="icon ion-ios-cart-outline" style="font-size: 48px"
+                 ng-click="accountBtnClick(2)"></i>
+              <i class="icon ion-ios-paperplane-outline" style="font-size: 48px"
+                 ng-click="accountBtnClick(3)"></i>
+            </div>
+          </div>
+          <ion-item class="item-icon-left item-icon-right  " id="side-menu21-list-item3" data-componentid="list-item3" ng-click="accountItemClick(0)">
+            <i class="icon ion-android-person-add" style="font-size: 24px"></i>关注/粉丝
+            <i class="icon ion-ios-arrow-forward" style="font-size: 24px"></i>
+          </ion-item>
+          <ion-item class="item-icon-left item-icon-right  " id="side-menu21-list-item4" data-componentid="list-item4" ng-click="accountItemClick(1)">
+            <i class="icon ion-android-textsms" style="font-size: 24px"></i>意见反馈
+            <i class="icon ion-ios-arrow-forward" style="font-size: 24px"></i>
+          </ion-item>
+          <ion-item class="item-icon-left item-icon-right  " id="side-menu21-list-item5" data-componentid="list-item5" ng-click="accountItemClick(2)">
+            <i class="icon ion-android-settings" style="font-size: 24px"></i>设置
+            <i class="icon ion-ios-arrow-forward" style="font-size: 24px"></i>
+          </ion-item>
+        </div>
+      </ion-content>
+    </ion-side-menu>
+  </ion-side-menus>
+</div>
+</body>
+</html>
